@@ -13,10 +13,14 @@ public class Action implements ActionListener {
             Frame.textArea.setText(Main.current);
         }
 
-
         else if (e.getActionCommand().equals("c")) {
             Main.current = "";
             Frame.textArea.setText("");
+        }
+
+        else if (e.getActionCommand().equals("e")){
+            Main.current = Main.current.replace("e", String.format("%.6f", Math.E).replace(',', '.'));
+            Frame.textArea.setText(Main.current);
         }
 
     }

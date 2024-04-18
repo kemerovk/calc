@@ -30,6 +30,7 @@ public class Main {
         index++;
 
         boolean isSqrtB = chars[index] == '√';
+        if (isSqrtB) index++;
         while (chars[index] != '='){
             sec.append(chars[index]);
             index++;
@@ -39,7 +40,7 @@ public class Main {
         if (isSqrtA) first = (float) Math.sqrt(first);
 
         float second = Float.parseFloat(sec.toString());
-        if (isSqrtB) second = (float) Math.sqrt(first);
+        if (isSqrtB) second = (float) Math.sqrt(second);
 
         return switch (option){
             case '+' -> addition(first, second);
@@ -69,7 +70,6 @@ public class Main {
     private static String division(float a, float b){
         return (isInt(a) && isInt(b) && a % b == 0)? "" + (int) (a / b): "" + (a / b);
     }
-
     private static String mod(float a, float b){
         return (isInt(a) && isInt(b))? "" + (int) (a % b): "can't complete operation mod with no integers";
     }

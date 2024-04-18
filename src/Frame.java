@@ -19,15 +19,11 @@ public class Frame extends JFrame{
 
             textArea = new JTextArea();
             textArea.setEditable(false);
-
             textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
             textArea.addKeyListener(new KeyAdapter() {
-/*
-*/
-
                 @Override
                 public void keyPressed(KeyEvent e){
-                    if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE  && e.getKeyCode() != KeyEvent.VK_ENTER && e.getKeyCode() != KeyEvent.VK_SHIFT) {
+                    if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE  && e.getKeyCode() != KeyEvent.VK_ENTER && e.getKeyCode() != KeyEvent.VK_SHIFT && e.getKeyCode() == KeyEvent.VK_E) {
                         System.out.println(e.getExtendedKeyCode());
                         textArea.append("" + e.getKeyChar());
                         Main.current += e.getKeyChar();
@@ -41,6 +37,10 @@ public class Frame extends JFrame{
                     else if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
                         Main.current = Main.current.substring(0, Main.current.length() - 1);
                         textArea.setText(Main.current);
+                    }
+                    else if (e.getKeyCode() == KeyEvent.VK_E){
+                        Main.current += String.format("%.6f", Math.E);
+                        textArea.append(Main.current);
                     }
                 }
             });
