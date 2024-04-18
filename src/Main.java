@@ -77,5 +77,4 @@ public class Main {
     private static boolean isInt(float a){
         return a == (int) a;
     }
-
 }

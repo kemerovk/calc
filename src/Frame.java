@@ -19,6 +19,7 @@ public class Frame extends JFrame{
 
             textArea = new JTextArea();
             textArea.setEditable(false);
+
             textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
             textArea.addKeyListener(new KeyAdapter() {
 /*

@@ -12,6 +12,8 @@ public class Action implements ActionListener {
             Main.current = Main.getResult(Main.current);
             Frame.textArea.setText(Main.current);
         }
+
+
         else if (e.getActionCommand().equals("c")) {
             Main.current = "";
             Frame.textArea.setText("");
