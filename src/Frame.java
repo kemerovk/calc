@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class Frame extends JFrame{
         static JPanel panelOut;
@@ -20,31 +18,7 @@ public class Frame extends JFrame{
             textArea = new JTextArea();
             textArea.setEditable(false);
             textArea.setFont(new Font("Times New Roman", Font.BOLD, 20));
-            textArea.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e){
-                    if (e.getKeyCode() != KeyEvent.VK_BACK_SPACE  && e.getKeyCode() != KeyEvent.VK_ENTER && e.getKeyCode() != KeyEvent.VK_SHIFT && e.getKeyCode() == KeyEvent.VK_E) {
-                        System.out.println(e.getExtendedKeyCode());
-                        textArea.append("" + e.getKeyChar());
-                        Main.current += e.getKeyChar();
-                    }
-                    else if (e.getKeyCode() == KeyEvent.VK_ENTER){
-                        Main.current += "=";
-                        Main.current = Main.getResult(Main.current);
-                        textArea.setText(Main.current);
-                    }
-
-                    else if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
-                        Main.current = Main.current.substring(0, Main.current.length() - 1);
-                        textArea.setText(Main.current);
-                    }
-                    else if (e.getKeyCode() == KeyEvent.VK_E){
-                        Main.current += String.format("%.6f", Math.E);
-                        textArea.append(Main.current);
-                    }
-                }
-            });
-
+            textArea.addKeyListener(new Key() );
 
 
             panelOut.add(textArea);
@@ -64,7 +38,7 @@ public class Frame extends JFrame{
 
             for (char c: buttons){
                 JButton button = new JButton("" + c);
-                button.setBackground(Color.pink);
+                button.setBackground(Color.ORANGE);
                 button.setFont(new Font("Times New Roman", Font.BOLD, 20));
                 button.addActionListener(new Action());
                 panelIn.add(button);

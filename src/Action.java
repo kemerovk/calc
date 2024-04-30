@@ -9,7 +9,7 @@ public class Action implements ActionListener {
         Frame.textArea.append(e.getActionCommand());
 
         if (e.getActionCommand().equals("=")){
-            Main.current = Main.getResult(Main.current);
+            Main.current = Result.getResult(Main.current);
             Frame.textArea.setText(Main.current);
         }
 
